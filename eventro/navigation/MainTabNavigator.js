@@ -3,15 +3,15 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import EventsScreen from '../screens/EventsScreen';
+import PeopleScreen from '../screens/PeopleScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const EventsStack = createStackNavigator({
+  Events: EventsScreen,
 });
 
-HomeStack.navigationOptions = {
+EventsStack.navigationOptions = {
   tabBarLabel: 'Events',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -25,11 +25,11 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const PeopleStack = createStackNavigator({
+  People: PeopleScreen,
 });
 
-LinksStack.navigationOptions = {
+PeopleStack.navigationOptions = {
   tabBarLabel: 'People',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -39,11 +39,11 @@ LinksStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen,
 });
 
-SettingsStack.navigationOptions = {
+ProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -54,7 +54,7 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  EventsStack,
+  PeopleStack,
+  ProfileStack,
 });
