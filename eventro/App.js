@@ -10,8 +10,7 @@ export default class App extends React.Component {
     super();
     this.state = {
       user: null,
-      events: [],
-      currentShow: null,
+      currentEvent: null,
   
       isLoadingComplete: false,
     };
