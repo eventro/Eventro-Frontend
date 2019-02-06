@@ -48,7 +48,8 @@ export default class EventsScreen extends React.Component {
          : <Events
          toggleEvent={this.props.screenProps.toggleEvent}
         //  activeEvent={this.props.screenProps.activeEvent}
-        setActiveEvent={this.props.screenProps.setActiveEvent}/>}
+        setActiveEvent={this.props.screenProps.setActiveEvent}
+        navigation={this.props.navigation}/>}
        
           
         </View>

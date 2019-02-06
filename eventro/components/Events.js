@@ -14,7 +14,7 @@ export default class Events extends React.Component {
     componentDidMount() {
         if (this.props.eventsMode === "show") {
             //CHANGE USER_ID IN ENDPOINT DEPENDING ON HOW THE USER SHOW PAGE WILL BE
-            const url = `https://peaceful-anchorage-79063.herokuapp.com/users/${this.props.screenProps.user.id}/attendees`
+            const url = `https://peaceful-anchorage-79063.herokuapp.com/users/${this.props.user.id}/attendees`
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -28,7 +28,7 @@ export default class Events extends React.Component {
                 })
         }
         else if (this.props.eventsMode === "profile") {
-            const url = `https://peaceful-anchorage-79063.herokuapp.com/users/${this.props.screenProps.user.id}/attendees`
+            const url = `https://peaceful-anchorage-79063.herokuapp.com/users/${this.props.user.id}/attendees`
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -71,6 +71,7 @@ export default class Events extends React.Component {
                     console.log("\n\n\n\n\n\n\n\n\n\n\ ", event);
                     this.props.setActiveEvent(event)   
                    this.props.toggleEvent()
+                   this.props.navigation.navigate('Events')
                          
                 }}> 
                 <Image style= {{width: 100, height: 100}}source= {{uri: event.logo}} />
