@@ -34,13 +34,8 @@ class SignupScreen extends Component {
     handleSubmit() {
         // event.preventDefault();
         // console.log("HELLO I AM IN HANDLE SUBMIT!!!!!!!!!!!!!!!!!!!!!!!!")
-<<<<<<< HEAD
-        const url = "http://10.51.0.126:3000/users"
-        console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n THE PASSWORD: ", this.state.password)
-=======
         const url = "https://peaceful-anchorage-79063.herokuapp.com/users"
         console.log("THE PASSWORD: ", this.state.password)
->>>>>>> 8779dcd68500b510010ab8d88d94f30a2f3662d3
 
         const data = {
             user: {

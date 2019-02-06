@@ -26,11 +26,7 @@ class SigninScreen extends Component {
 
     handleSubmit() {
         // event.preventDefault();
-<<<<<<< HEAD
-        const url = "http://10.51.0.126:3000/login"
-=======
         const url = "https://peaceful-anchorage-79063.herokuapp.com/login"
->>>>>>> 8779dcd68500b510010ab8d88d94f30a2f3662d3
 
         const data = {
             email: this.state.email,
