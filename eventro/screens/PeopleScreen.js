@@ -115,7 +115,7 @@ componentDidMount(){
 
   }
   render() {
-    const filteredEmails = this.state.users.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    const filteredUsers = this.state.users.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
 
       <View style={styles.container}>
@@ -135,16 +135,16 @@ componentDidMount(){
         placeholder="Search for a user"
         />
       <ScrollView>
-        {filteredEmails.map(email => {
+        {filteredUsers.map(user => {
           return (
             <TouchableOpacity onPress={()=>
-              {this.onSelection(email)}}
+              {this.onSelection(user)}}
             
-            key={email.id} style={styles.emailItem}
+            key={user.id} style={styles.userItem}
             >
               <View>
-                <Text>{email.username}</Text>
-                <Text style={styles.emailSubject}>{email.name}</Text>
+                <Text>{user.username}</Text>
+                <Text style={styles.userSubject}>{user.name}</Text>
               </View>
             </TouchableOpacity>
           ) 
@@ -169,12 +169,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  emailItem:{
+  userItem:{
     borderBottomWidth: 0.5,
     borderColor: 'rgba(0,0,0,0.3)',
     padding: 10
   },
-  emailSubject: {
+  userSubject: {
     color: 'rgba(0,0,0,0.5)'
   },
   searchInput:{

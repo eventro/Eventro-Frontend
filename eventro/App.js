@@ -91,10 +91,7 @@ export default class App extends React.Component {
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <AppNavigator screenProps={
             {
-<<<<<<< HEAD
-=======
               setUser: this.setUser.bind(this),
->>>>>>> f9af73c98a5abc964a21d1081fe7fe775d252811
               user: this.state.user,
               activeEvent: this.state.activeEvent,
               setActiveEvent: this.setActiveEvent.bind(this),
