@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Header, Text, Left, Icon } from 'native-base';
+import { View, Header, Text, Left, Icon, Image } from 'native-base';
 import Event from './Event';
 
 export default class Events extends React.Component {
