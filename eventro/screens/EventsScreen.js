@@ -14,6 +14,7 @@ import { MonoText } from '../components/StyledText';
 
 export default class EventsScreen extends React.Component {
   constructor() {
+    super();
     this.state = {
       events: []
     }

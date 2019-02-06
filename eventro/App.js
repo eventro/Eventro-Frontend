@@ -11,8 +11,7 @@ export default class App extends React.Component {
     this.state = {
       user: null,
       currentEvent: null,
-  
-      isLoadingComplete: false,
+      isLoadingComplete: false
     };
 
   }
