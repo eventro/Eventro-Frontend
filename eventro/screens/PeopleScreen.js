@@ -67,7 +67,6 @@ componentDidMount(){
 
   onSelection(user){
     console.log('clicked!!!!!',user)
-    alert(`yaay ${user.name}`);
     this.setState({
       selectedUser: true,
       viewUser: user })

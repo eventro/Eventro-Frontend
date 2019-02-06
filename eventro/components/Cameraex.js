@@ -73,6 +73,7 @@ async componentDidMount() {
 }
 
 uploadFile = (file) => {
+    console.log('uploadFile fired')
     console.log(file);
 
    return fetch('https://api.cloudinary.com/v1_1/' + cloudinaryName  + '/image/upload?upload_preset=' + preset,  {
@@ -111,7 +112,7 @@ takePicture = () => {
     if (this.camera) {
         this.camera.takePictureAsync()
             .then(img => {
-                console.log('SNAP');
+                console.log('SNAP!!!!');
                 console.log(img);
                 /* 
                 this.setState({
@@ -124,12 +125,14 @@ takePicture = () => {
                 this.uploadPhoto(data.uri);
                 */
 
-               const data = new FormData();
-               data.append('file', {
-                 uri: img.uri,
-                 type: 'image/jpeg', // or photo.type
-                 name: 'testPhotoName'
-               });
+                const data = new FormData();
+                data.append('file', {
+                    uri: img.uri,
+                    type: 'image/jpeg', // or photo.type
+                    name: 'testPhotoName'
+                });
+
+                console.log('**', this)
 
                 this.uploadFile(data)
                
@@ -147,29 +150,29 @@ takePicture = () => {
     this.setState({ hasCameraPermission: status === 'granted' });
   }
 
-  takePicture = () => {
-    console.log('attempting picture');
-    if (this.camera) {
-      this.camera.takePictureAsync()
-        .then( data => {
-            console.log('SNAP');
-            console.log(data);
-            /* 
-            this.setState({
-                currentPhoto: data.uri
-            })
-            this.uploadPhoto(this.state.currentPhoto) 
+//   takePicture = () => {
+//     console.log('attempting picture');
+//     if (this.camera) {
+//       this.camera.takePictureAsync()
+//         .then( data => {
+//             console.log('SNAP');
+//             console.log(data);
+//             /* 
+//             this.setState({
+//                 currentPhoto: data.uri
+//             })
+//             this.uploadPhoto(this.state.currentPhoto) 
 
-            or 
+//             or 
 
-            this.uploadPhoto(data.uri);
-            */
-        })
-        .catch( error =>{
-            console.log(error);
-        })
-    }
-  };
+//             this.uploadPhoto(data.uri);
+//             */
+//         })
+//         .catch( error =>{
+//             console.log(error);
+//         })
+//     }
+//   };
 
 
 
@@ -182,10 +185,14 @@ takePicture = () => {
     } else {
       return (
           <View style={{ flex: 1 }}>
-          <Text>CAMERA ON................................... 
-          .....................
+          <Text>CAMERA ON
           </Text>
-          <Camera ref={ref => {this.camera = ref}} style={{ flex: .8 }} type={this.state.type}>
+          <Camera ref={ref => {this.camera = ref}}     style={{
+                  flex: 0.1,
+                  width:400,
+                  height:400,
+                  alignItems: 'center',
+                }} type={this.state.type}>
             <View
               style={{
                 flex: 1,
