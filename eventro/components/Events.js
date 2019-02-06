@@ -97,4 +97,3 @@ export default class Events extends React.Component {
         )
     }
 }
-
