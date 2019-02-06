@@ -1,5 +1,7 @@
 import React from 'react'
-import { View, Header, Text, Left, Image, Button } from 'native-base';
+import { View, Header, Text, Left, Button } from 'native-base';
+import {Image, TouchableOpacity} from 'react-native'
+import Cameraex from './Cameraex';
 
 
 
@@ -8,12 +10,12 @@ export default class Event extends React.Component {
         super()
         this.state = {
             attendees: 0,
-            organizer: "",
+            organizer: []
         }
     }
 
     renderOrganizer() {
-        const url = `http://10.51.0.126:3000/events/${this.props.activeEvent.id}/organizers/${this.props.organizer.id}`
+        const url = `https://peaceful-anchorage-79063.herokuapp.com/organizers/${this.props.activeEvent.organizer_id}`
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -29,7 +31,7 @@ export default class Event extends React.Component {
 
     componentDidMount() {
 
-        const url = `http://10.51.0.126:3000/events/${this.props.activeEvent.id}/countattendees`
+        const url = `https://peaceful-anchorage-79063.herokuapp.com/events/${this.props.activeEvent.id}/countattendees`
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -42,25 +44,28 @@ export default class Event extends React.Component {
                 console.log(error)
             })
 
-        renderOrganizer();
-        renderComments();
+        this.renderOrganizer();
+        // renderComments();
     }
 
     render() {
         return (
             <View>
-                <Image source={this.props.activeEvent.logo} />
+                <TouchableOpacity onPress={() => this.props.setActiveEvent(null)}><Text>Back</Text></TouchableOpacity>
+                <Image style={{width: 80, height: 80}} source={{uri: this.props.activeEvent.logo}} />
                 <Text>{this.props.activeEvent.name}</Text>
-                <Image source={props.activeEvent.image_url} />
-                <Text>Attendee {this.state.attendees}</Text>
-                <Text>Description : <br /> {this.props.activeEvent.description}</Text>
-                <Text>Start date : {this.props.activeEvent.start_date} End date : {this.props.activeEvent.end_date}</Text>
+                <Image style={{width: 120, height: 120}} source={{uri: this.props.activeEvent.image_url}} />
+                <Text>Attendee:  {this.state.attendees}</Text>
+                <Text>Description :  {this.props.activeEvent.description}</Text>
+                <Text>Start date : {this.props.activeEvent.start_date} </Text>
+                <Text>End date : {this.props.activeEvent.end_date}</Text>
                 <Text>Location: {this.props.location}</Text>
-                <Text>Organizer : {this.props.organizer.name}</Text>
-                <Text>Organizer Email: {this.props.email}</Text>
-                <Text>Organizer Phone : {this.props.phone}</Text>
+                <Text>Organizer : {this.state.organizer.name}</Text>
+                <Text>Organizer Email: {this.state.organizer.email}</Text>
+                <Text>Organizer Phone : {this.state.organizer.phone}</Text>
                 <Text>Join Us , And add your photo to our </Text>
-                <Text onPress={() => this.props.navigation.navigate('Cameraex')}>Live Photo</Text>
+                <TouchableOpacity onPress={() => <Cameraex/>}><Text>Live Photo</Text></TouchableOpacity>
+                {/* this.props.navigation.navigate('Cameraex') */}
             </View>
         )
     }
