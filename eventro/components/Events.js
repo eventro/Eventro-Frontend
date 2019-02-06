@@ -1,25 +1,24 @@
 import React from 'react';
-import { View, Header, Text, Left, Icon, Image } from 'native-base';
-import Event from './Event';
+import { View, Header, Text, Left, Icon, Container, Button } from 'native-base';
+// import Event from './Event';
+import {Image, TouchableOpacity} from 'react-native'
+
 
 export default class Events extends React.Component {
     constructor() {
         super();
         this.state = {
             events: [],
-            activeEvent : ""
+            activeEvent : {}
         }
     }
     componentDidMount() {
 
-        const url = 'http://10.51.0.126:3000/events'
-        fetch(url, {
-            method: 'GET',
-            body: null,
-        })
+        const url = 'https://peaceful-anchorage-79063.herokuapp.com/events'
+        fetch(url)
             .then(response => response.json())
             .then(data => {
-                console.log("\n\n\n\n\n\n\n\n\n\n\n\n\ **********Events", data)
+                // console.log("\n\n\n\n\n\n\n\n\n\n\n\n\ **********Events", data)
                 this.setState({
                     events: data
                 })
@@ -35,24 +34,20 @@ export default class Events extends React.Component {
             // console.log("event: ", event);
             return (
                 
-                <View key={index} onPress={() => {
-
-                    this.props.setCurrentevent(event);
-                    this.props.setView("eventshow");
-                    return(
-
-                        <Event activeEvent={this.state.activeEvent} />
-                    )
-                }}>
-                <Image source={event.logo} />
+                <TouchableOpacity key={index} style={{borderRadius: 4, borderColor: "black"}} 
+                onPress={() => { 
+                    console.log("\n\n\n\n\n\n\n\n\n\n\ ", event);
+                    this.props.setActiveEvent(event)   
+                   this.props.toggleEvent()
+                         
+                }}> 
+                <Image style= {{width: 100, height: 100}}source= {{uri: event.logo}} />
                 <Text>{event.name}</Text>
-                {/* <Image source={event.image_url} /> */}
-                {/* <Text>Attendee {event.attendees}</Text> */}
-                {/* <Text>Description : {event.description}</Text> */}
-                <Text>Start date : {event.start_date} End date : {event.end_date}</Text>
-                {/* <Text>Location: {event.location}</Text> */}
-                {/* <Button onPress>More Info</Button> */}
-                </View>
+                <Text>Start date : {event.start_date} </Text>
+                <Text> End date : {event.end_date}</Text>
+                
+                
+                </TouchableOpacity>
             )
         })
     }

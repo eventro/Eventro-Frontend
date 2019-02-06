@@ -13,12 +13,16 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import Events from '../components/Events';
+import Event from '../components/Event';
 
 export default class EventsScreen extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      events: []
+      events: [],
+      // activeEvent: props.screenProps.activeEvent,
+      // toggleEvent: props.screenProps.toggleEvent,
+      // setActiveEvent: props.screenProps.setActiveEvent
     }
   }
   static navigationOptions = {
@@ -26,12 +30,27 @@ export default class EventsScreen extends React.Component {
     title: "Events"
   };
 
+  componentDidMount(){
+    console.log("NANANANANNANA/n/n/n/n/n/n//n", this.props.screenProps)
+  }
+
+ 
+
   render() {
     return (
       <ScrollView>
         <View style={styles.welcomeContainer}>
-          <Text>HELLO THIS IS THE EVENTS SCREEN {this.props.screenProps.thing}</Text>
-          <Events/>
+          <Text>HELLO THIS IS THE EVENTS SCREEN </Text>
+         {this.props.screenProps.activeEvent ? <Event 
+         toggleEvent={this.props.screenProps.toggleEvent}
+        activeEvent={this.props.screenProps.activeEvent}
+        setActiveEvent={this.props.screenProps.setActiveEvent}/> 
+         : <Events
+         toggleEvent={this.props.screenProps.toggleEvent}
+        //  activeEvent={this.props.screenProps.activeEvent}
+        setActiveEvent={this.props.screenProps.setActiveEvent}/>}
+       
+          
         </View>
       </ScrollView>
     );
