@@ -10,10 +10,13 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
+
 import { MonoText } from '../components/StyledText';
+import Events from '../components/Events';
 
 export default class EventsScreen extends React.Component {
   constructor() {
+    super();
     this.state = {
       events: []
     }
@@ -28,6 +31,7 @@ export default class EventsScreen extends React.Component {
       <ScrollView>
         <View style={styles.welcomeContainer}>
           <Text>HELLO THIS IS THE EVENTS SCREEN</Text>
+          <Events/>
         </View>
       </ScrollView>
     );
