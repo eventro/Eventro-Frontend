@@ -42,6 +42,7 @@ export default class EventsScreen extends React.Component {
         <View style={styles.welcomeContainer}>
           <Text>HELLO THIS IS THE EVENTS SCREEN </Text>
          {this.props.screenProps.activeEvent ? <Event 
+         user={this.props.screenProps.user}
          toggleEvent={this.props.screenProps.toggleEvent}
         activeEvent={this.props.screenProps.activeEvent}
         setActiveEvent={this.props.screenProps.setActiveEvent}/> 
