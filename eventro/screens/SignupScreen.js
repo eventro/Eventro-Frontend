@@ -133,7 +133,7 @@ class SignupScreen extends Component {
                     </Form>
                     <TouchableOpacity onPress={() => this.props.toggleNewUser()}>
                         <Text style={styles.label}>
-                            Already Have an Account? Click here
+                            Already have an account? Click here!
                         </Text>
                     </TouchableOpacity>
                 </Content>

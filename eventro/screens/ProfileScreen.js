@@ -21,7 +21,7 @@ export default class ProfileScreen extends React.Component {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log("FOLLOWEE COUNT: ", data)
+      // console.log("FOLLOWEE COUNT: ", data)
       this.setState({followeesCount: data})
     })
     .catch(error  => console.log(error))
@@ -30,7 +30,7 @@ export default class ProfileScreen extends React.Component {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log("FOLLOWER COUNT: ", data)
+      // console.log("FOLLOWER COUNT: ", data)
       this.setState({followersCount: data})
     })
     .catch(error  => console.log(error))
@@ -51,12 +51,13 @@ export default class ProfileScreen extends React.Component {
           <Text style={styles.userInfo}>Following: {this.state.followeesCount}</Text>
           <Text style={styles.userInfo}>Followers: {this.state.followersCount}</Text>
         </View>
+
+        <Events eventsMode="profile"/>
         <Button block danger style={styles.button}
           onPress={() => {
             AsyncStorage.clear();
             this.props.screenProps.setUser(null);
-          }
-          }>
+          }}>
           <Text>Log Out</Text>
         </Button>
       </ScrollView>
