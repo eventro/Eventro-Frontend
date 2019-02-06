@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Text, AsyncStorage } from 'react-native';
 import { ExpoConfigView } from '@expo/samples';
 import { Container, Header, Content, Form, Item, Input, Label, Button } from 'native-base';
+import Events from '../components/Events'
 
 export default class ProfileScreen extends React.Component {
   constructor(props) {

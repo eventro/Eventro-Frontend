@@ -8,9 +8,7 @@ export default class Events extends React.Component {
     constructor() {
         super();
         this.state = {
-            events: [],
-<<<<<<< HEAD
-            activeEvent: ""
+            events: []
         }
     }
     componentDidMount() {
@@ -24,20 +22,6 @@ export default class Events extends React.Component {
                     this.setState({
                         events: data
                     })
-=======
-            activeEvent : {}
-        }
-    }
-    componentDidMount() {
-
-        const url = 'https://peaceful-anchorage-79063.herokuapp.com/events'
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                // console.log("\n\n\n\n\n\n\n\n\n\n\n\n\ **********Events", data)
-                this.setState({
-                    events: data
->>>>>>> d2d7c02b4fcdfb5c1e29646e5bafd93029253065
                 })
                 .catch(error => {
                     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n ", error)
@@ -81,27 +65,6 @@ export default class Events extends React.Component {
         return this.state.events.map((event, index) => {
             // console.log("event: ", event);
             return (
-<<<<<<< HEAD
-
-                <View key={index} onPress={() => {
-
-                    this.props.setCurrentevent(event);
-                    this.props.setView("eventshow");
-                    return (
-
-                        <Event activeEvent={this.state.activeEvent} />
-                    )
-                }}>
-                    <Image source={event.logo} />
-                    <Text>{event.name}</Text>
-                    {/* <Image source={event.image_url} /> */}
-                    {/* <Text>Attendee {event.attendees}</Text> */}
-                    {/* <Text>Description : {event.description}</Text> */}
-                    <Text>Start date : {event.start_date} End date : {event.end_date}</Text>
-                    {/* <Text>Location: {event.location}</Text> */}
-                    {/* <Button onPress>More Info</Button> */}
-                </View>
-=======
                 
                 <TouchableOpacity key={index} style={{borderRadius: 4, borderColor: "black"}} 
                 onPress={() => { 
@@ -117,7 +80,6 @@ export default class Events extends React.Component {
                 
                 
                 </TouchableOpacity>
->>>>>>> d2d7c02b4fcdfb5c1e29646e5bafd93029253065
             )
         })
     }

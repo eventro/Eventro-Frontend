@@ -64,7 +64,7 @@ export default class Event extends React.Component {
                 <Text>Organizer Email: {this.state.organizer.email}</Text>
                 <Text>Organizer Phone : {this.state.organizer.phone}</Text>
                 <Text>Join Us , And add your photo to our </Text>
-                <TouchableOpacity onPress={() => <Cameraex/>}><Text>Live Photo</Text></TouchableOpacity>
+                {/* <TouchableOpacity onPress={() => <Cameraex/>}><Text>Live Photo</Text></TouchableOpacity> */}
                 {/* this.props.navigation.navigate('Cameraex') */}
             </View>
         )
