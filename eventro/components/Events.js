@@ -32,8 +32,9 @@ export default class Events extends React.Component {
     
     renderEvents() {
         return this.state.events.map((event, index) => {
-            console.log("event: ", event);
+            // console.log("event: ", event);
             return (
+                
                 <View key={index} onPress={() => {
 
                     this.props.setCurrentevent(event);
@@ -43,14 +44,14 @@ export default class Events extends React.Component {
                         <Event activeEvent={this.state.activeEvent} />
                     )
                 }}>
-                {/* <Image source={event.logo} /> */}
+                <Image source={event.logo} />
                 <Text>{event.name}</Text>
                 {/* <Image source={event.image_url} /> */}
-                <Text>Attendee {event.attendees}</Text>
-                <Text>Description : {event.description}</Text>
+                {/* <Text>Attendee {event.attendees}</Text> */}
+                {/* <Text>Description : {event.description}</Text> */}
                 <Text>Start date : {event.start_date} End date : {event.end_date}</Text>
-                <Text>Location: {event.location}</Text>
-                <Button onPress>More Info</Button>
+                {/* <Text>Location: {event.location}</Text> */}
+                {/* <Button onPress>More Info</Button> */}
                 </View>
             )
         })
