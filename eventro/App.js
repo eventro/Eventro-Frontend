@@ -113,6 +113,11 @@ export default class App extends React.Component {
     ]);
   };
 
+  setCurrentEnevt(event) {
+    console.log("set current event" , event)
+    this.setState({ currentEvent: event });
+  }
+
   _handleLoadingError = error => {
     // In this case, you might want to report the error to your error
     // reporting service, for example Sentry

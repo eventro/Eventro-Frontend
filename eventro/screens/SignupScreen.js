@@ -56,17 +56,17 @@ class SignupScreen extends Component {
             .then(response => response.json())
             .then(data => {
                 if (data.email !== undefined) {
-                    console.log("SignUp successful for: ", data);
+                    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n SignUp successful for: ", data);
                     AsyncStorage.setItem("user", JSON.stringify(data));
                     this.props.setUser(data);
                 }
                 else {
-                    console.log("GOT SHITTY DATA", data)
+                    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\nGOT SHITTY DATA", data)
                     this.setState({ errorMessage: JSON.stringify(data) })
                 }
             })
             .catch(error => {
-                console.log(error);
+                console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n ", error);
             })
     }
 
