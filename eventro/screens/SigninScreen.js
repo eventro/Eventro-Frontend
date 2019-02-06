@@ -26,7 +26,7 @@ class SigninScreen extends Component {
 
     handleSubmit() {
         // event.preventDefault();
-        const url = "http://localhost:3000/login"
+        const url = "https://peaceful-anchorage-79063.herokuapp.com/login"
 
         const data = {
             email: this.state.email,
