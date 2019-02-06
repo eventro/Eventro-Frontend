@@ -13,11 +13,6 @@ import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 
 export default class EventsScreen extends React.Component {
-  constructor() {
-    this.state = {
-      events: []
-    }
-  }
   static navigationOptions = {
     // header: null,
     title: "Events"
@@ -27,7 +22,7 @@ export default class EventsScreen extends React.Component {
     return (
       <ScrollView>
         <View style={styles.welcomeContainer}>
-          <Text>HELLO THIS IS THE EVENTS SCREEN</Text>
+          <Text>HELLO THIS IS THE EVENTS SCREEN {this.props.screenProps.thing}</Text>
         </View>
       </ScrollView>
     );
