@@ -31,7 +31,7 @@ export default class EventsScreen extends React.Component {
       <ScrollView>
         <View style={styles.welcomeContainer}>
           <Text>HELLO THIS IS THE EVENTS SCREEN {this.props.screenProps.thing}</Text>
-          <Events/>
+          <Events eventsMode="all"/>
         </View>
       </ScrollView>
     );
