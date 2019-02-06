@@ -53,7 +53,10 @@ export default class ProfileScreen extends React.Component {
           <Text style={styles.userInfo}>Followers: {this.state.followersCount}</Text>
         </View>
 
-        <Events eventsMode="profile"/>
+        <Events eventsMode="profile" user={this.props.screenProps.user}
+        setActiveEvent={this.props.screenProps.setActiveEvent}
+        toggleEvent={this.props.screenProps.toggleEvent}
+        navigation={this.props.navigation}/>
         <Button block danger style={styles.button}
           onPress={() => {
             AsyncStorage.clear();
