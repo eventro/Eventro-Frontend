@@ -94,7 +94,7 @@ class SigninScreen extends Component {
                     </Form>
                     <TouchableOpacity onPress={() => this.props.toggleNewUser()}>
                         <Text style={styles.label}>
-                            Don't Have an Account? Click here
+                            Don't have an account? click here!
                         </Text>
                     </TouchableOpacity>
                 </Content>

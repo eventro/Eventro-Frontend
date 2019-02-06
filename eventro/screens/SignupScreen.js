@@ -34,7 +34,7 @@ class SignupScreen extends Component {
     handleSubmit() {
         // event.preventDefault();
         // console.log("HELLO I AM IN HANDLE SUBMIT!!!!!!!!!!!!!!!!!!!!!!!!")
-        const url = "http://localhost:3000/users"
+        const url = "https://peaceful-anchorage-79063.herokuapp.com/users"
         console.log("THE PASSWORD: ", this.state.password)
 
         const data = {
@@ -56,17 +56,17 @@ class SignupScreen extends Component {
             .then(response => response.json())
             .then(data => {
                 if (data.email !== undefined) {
-                    console.log("SignUp successful for: ", data);
+                    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n SignUp successful for: ", data);
                     AsyncStorage.setItem("user", JSON.stringify(data));
                     this.props.setUser(data);
                 }
                 else {
-                    console.log("GOT SHITTY DATA", data)
+                    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\nGOT SHITTY DATA", data)
                     this.setState({ errorMessage: JSON.stringify(data) })
                 }
             })
             .catch(error => {
-                console.log(error);
+                console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n ", error);
             })
     }
 
@@ -95,32 +95,32 @@ class SignupScreen extends Component {
                     <Form>
                         <Item stackedLabel>
                             <Label>Email</Label>
-                            <Input onChangeText={(email) => this.setState({ email })}
+                            <Input style={styles.textInput} onChangeText={(email) => this.setState({ email })}
                                 value={this.state.email}
                                 autoCapitalize="none" />
                         </Item>
                         <Item stackedLabel>
                             <Label>Password</Label>
-                            <Input onChangeText={(password) => this.setState({ password })}
+                            <Input style={styles.textInput} onChangeText={(password) => this.setState({ password })}
                                 autoCapitalize="none"
                                 secureTextEntry={true}
                                 value={this.state.password} />
                         </Item>
                         <Item stackedLabel>
                             <Label>Username</Label>
-                            <Input onChangeText={(username) => this.setState({ username })}
+                            <Input style={styles.textInput} onChangeText={(username) => this.setState({ username })}
                                 value={this.state.username}
                                 autoCapitalize="none" />
                         </Item>
                         <Item stackedLabel>
                             <Label>Name</Label>
-                            <Input onChangeText={(name) => this.setState({ name })}
+                            <Input style={styles.textInput} onChangeText={(name) => this.setState({ name })}
                                 value={this.state.name}
                                 autoCapitalize="none" />
                         </Item>
                         <Item stackedLabel last>
                             <Label>Date of birth (dd/mm/yyyy)</Label>
-                            <Input onChangeText={(dob) => this.setState({ dob })}
+                            <Input style={styles.textInput} onChangeText={(dob) => this.setState({ dob })}
                                 value={this.state.dob}
                                 autoCapitalize="none" />
                         </Item>
@@ -133,7 +133,7 @@ class SignupScreen extends Component {
                     </Form>
                     <TouchableOpacity onPress={() => this.props.toggleNewUser()}>
                         <Text style={styles.label}>
-                            Already Have an Account? Click here
+                            Already have an account? Click here!
                         </Text>
                     </TouchableOpacity>
                 </Content>

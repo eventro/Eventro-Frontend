@@ -26,7 +26,8 @@ export default class App extends React.Component {
       currentEvent: null,
       isLoadingComplete: false,
       newUser: false,
-      activeEvent: null
+      activeEvent: null,
+      oneEvent: false
     };
   }
 
@@ -55,6 +56,10 @@ export default class App extends React.Component {
 
   setActiveEvent(event) {
     this.setState({ activeEvent: event });
+  }
+  toggleEvent(){
+   
+    this.setState({oneEvent: !this.state.oneEvent})
   }
 
   render() {
@@ -86,9 +91,14 @@ export default class App extends React.Component {
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <AppNavigator screenProps={
             {
+<<<<<<< HEAD
+=======
+              setUser: this.setUser.bind(this),
+>>>>>>> f9af73c98a5abc964a21d1081fe7fe775d252811
               user: this.state.user,
               activeEvent: this.state.activeEvent,
-              setActiveEvent: this.setActiveEvent.bind(this)
+              setActiveEvent: this.setActiveEvent.bind(this),
+              toggleEvent: this.toggleEvent.bind(this)
             }
           } />
         </View>
