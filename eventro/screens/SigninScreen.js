@@ -43,6 +43,7 @@ class SigninScreen extends Component {
             .then(data => {
                 if (data.email !== undefined) {
                     console.log("SignIn successful for: ", data);
+                    console.log("authtoken: ", data.auth_token);
                     AsyncStorage.setItem("user", JSON.stringify(data));
                     this.props.setUser(data);
                 }

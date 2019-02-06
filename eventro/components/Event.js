@@ -10,7 +10,8 @@ export default class Event extends React.Component {
         super()
         this.state = {
             attendees: 0,
-            organizer: []
+            organizer: [],
+            showCamera: false
         }
     }
 
@@ -48,6 +49,12 @@ export default class Event extends React.Component {
         // renderComments();
     }
 
+    toggleCamera() {
+        this.setState({
+            showCamera: !this.state.showCamera
+        })
+    }
+
     render() {
         return (
             <View>
@@ -63,8 +70,9 @@ export default class Event extends React.Component {
                 <Text>Organizer : {this.state.organizer.name}</Text>
                 <Text>Organizer Email: {this.state.organizer.email}</Text>
                 <Text>Organizer Phone : {this.state.organizer.phone}</Text>
-                <Text>Join Us , And add your photo to our </Text>
-                {/* <TouchableOpacity onPress={() => <Cameraex/>}><Text>Live Photo</Text></TouchableOpacity> */}
+                <Text>Join Us , And add your photo to ours </Text>
+                {this.state.showCamera ? <Cameraex/> : null}
+                <TouchableOpacity onPress={() => this.toggleCamera()}><Text>{this.state.showCamera ? 'close camera' : 'Live Photo'}</Text></TouchableOpacity>
                 {/* this.props.navigation.navigate('Cameraex') */}
             </View>
         )
